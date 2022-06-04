@@ -1,5 +1,27 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
+const startButtom = document.querySelector('.button-container')
+let gameOver = false;
+
+start.addEventListener('click', (e) => { 
+    /**
+     * Criar um evento para adicionar a classe .pipe-animation
+     * Ao clicar no botão Start, fazer sumir o botão
+     * Ao dar game over fazer aparecer o botão
+     */
+    
+    if(gameOver === true) {
+        window.location.reload();
+        gameOver = false;
+    } else {
+        gameOver = true;
+        pipe.classList.remove('pipe-animation');
+        pipe.classList.add('pipe-animation');
+        startButtom.style.display = 'none';
+    }
+
+    
+})
 
 const jump = () => {
 mario.classList.add('jump');
@@ -17,8 +39,6 @@ const loop = setInterval(() => {
     const pipePosition = pipe.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
 
-    console.log(marioPosition);
-
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
  
         pipe.style.animation = 'none';
@@ -30,6 +50,8 @@ const loop = setInterval(() => {
         mario.src = './images/game-over.png'
         mario.style.width = '75px'
         mario.style.marginLeft = '50px'
+        
+        startButtom.style.display = 'flex'
 
         clearInterval(loop);
 
@@ -38,3 +60,4 @@ const loop = setInterval(() => {
 } , 10);
 
 document.addEventListener('keydown', jump);
+document.addEventListener("click", jump);
