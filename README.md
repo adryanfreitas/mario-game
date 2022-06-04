@@ -1,4 +1,4 @@
-# Super Mario Clone
+# Mario Game
 
 ## about
 
