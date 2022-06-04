@@ -110,3 +110,16 @@ height: 100vh;
     /* display: none; */
     
     }
+    
+    .game-over {
+        position: absolute;
+        background: #d0d31d;
+        color: rgb(156, 58, 58);
+        border-style: outset;
+        border-color: #0066A2;
+        height: 100px;
+        width: 200px;
+        font: bold 30px Arial;
+        text-shadow:none;
+        border-radius: 5%;
+    }

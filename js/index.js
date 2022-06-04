@@ -1,6 +1,7 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
-const startButtom = document.querySelector('.button-container')
+const buttomContainer = document.querySelector('.button-container')
+const buttomStart = document.querySelector('.start-button')
 let gameOver = false;
 
 start.addEventListener('click', (e) => { 
@@ -15,9 +16,12 @@ start.addEventListener('click', (e) => {
         gameOver = false;
     } else {
         gameOver = true;
+        buttomStart.classList.remove('start-button')
+        buttomStart.classList.add('game-over')
         pipe.classList.remove('pipe-animation');
         pipe.classList.add('pipe-animation');
-        startButtom.style.display = 'none';
+        buttomContainer.style.display = 'none';
+        buttomStart.innerHTML = 'Game Over!'
     }
 
     
@@ -51,7 +55,7 @@ const loop = setInterval(() => {
         mario.style.width = '75px'
         mario.style.marginLeft = '50px'
         
-        startButtom.style.display = 'flex'
+        buttomContainer.style.display = 'flex'
 
         clearInterval(loop);
 
